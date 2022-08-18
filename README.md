@@ -27,6 +27,19 @@ const calcDisplay = () => {
     displayData.value.push(item);
   }
 };
+// 使用 setTimeout 進行節流 ，避免使用者短時間一直觸發消耗效能
+const debounce = (func, delay) => {
+  let timer;
+  return () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func();
+    }, delay);
+  };
+};
+onMounted(() => {
+  addEventListener("scroll", debounce(calcDisplay, 250));
+});
 ```
 
 ## Coding Style

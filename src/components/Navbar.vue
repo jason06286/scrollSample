@@ -1,7 +1,7 @@
 <script setup></script>
 <template>
   <nav
-    class="fixed top-0 right-0 left-0 flex items-center border-b-2 bg-white px-5"
+    class="fixed top-0 right-0 left-0 z-10 flex items-center border-b-2 bg-white px-5"
   >
     <h1 class="cursor-pointer text-xl font-semibold">GitHub</h1>
     <button

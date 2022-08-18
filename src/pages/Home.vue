@@ -38,6 +38,7 @@ const size = computed(() => {
     return 1;
   }
 });
+
 const actualHeight = computed(() => {
   const height = (data.value.length / size.value) * 252;
   return `height:${height}px`;
@@ -46,19 +47,33 @@ const actualHeight = computed(() => {
 const calcDisplay = () => {
   const height = window.innerHeight + window.scrollY - 152;
   const num = Math.floor(height / 252);
-  const total = size.value * num;
+  let total = size.value * num;
 
-  if (displayData.value.length === data.value.length) return;
+  if (displayData.value.length >= data.value.length) {
+    return;
+  }
+
+  if (data.value.length - displayData.value.length < size.value) {
+    total = data.value.length;
+  }
 
   for (let j = displayData.value.length; j < total; j += 1) {
     const item = data.value[j];
     displayData.value.push(item);
   }
 };
-
+const debounce = (func, delay) => {
+  let timer;
+  return () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func();
+    }, delay);
+  };
+};
 onMounted(() => {
   getData();
-  window.addEventListener("scroll", calcDisplay);
+  window.addEventListener("scroll", debounce(calcDisplay, 250));
 });
 
 onUnmounted(() => {
