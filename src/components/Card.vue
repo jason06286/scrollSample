@@ -28,7 +28,7 @@ const directUrl = () => {
 </script>
 <template>
   <div
-    class="ant mb-5 w-full select-none rounded-md bg-gradient-to-tr from-yellow-400 via-purple-500 to-red-400 shadow-md"
+    class="ant before:z before:duration-600 relative mb-5 w-full select-none overflow-hidden rounded-md bg-gradient-to-tr from-yellow-400 via-purple-500 to-red-400 shadow-md hover:shadow-lg hover:shadow-yellow-500"
   >
     <div
       class="m-5 flex h-48 flex-col justify-center rounded-md bg-gray-400/60 pt-5 text-center"
