@@ -5,7 +5,7 @@ const { VITE_GITHUB_TOKEN: token } = process.env;
 axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 
 const baseRequest = axios.create({
-  baseURL: ` https://api.github.com/user/repos`,
+  baseURL: ` https://api.github.com/user`,
 });
 
-export const apiGetRepos = () => baseRequest.get();
+export const apiGetRepos = (page) => baseRequest.get(`/repos?page=${page}`);
