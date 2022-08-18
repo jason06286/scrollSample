@@ -28,7 +28,7 @@ const directUrl = () => {
 </script>
 <template>
   <div
-    class="mb-5 w-full select-none rounded-md bg-gradient-to-tr from-yellow-400 via-purple-500 to-red-400 shadow-md"
+    class="ant mb-5 w-full select-none rounded-md bg-gradient-to-tr from-yellow-400 via-purple-500 to-red-400 shadow-md"
   >
     <div
       class="m-5 flex h-48 flex-col justify-center rounded-md bg-gray-400/60 pt-5 text-center"
@@ -55,4 +55,16 @@ const directUrl = () => {
     </div>
   </div>
 </template>
-<style></style>
+<style>
+.ant {
+  animation: fadeIn 2s ease;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+</style>
